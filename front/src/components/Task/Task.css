@@ -1,0 +1,24 @@
+.task-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 7px;
+    margin: 10px 20rem;
+    background-color: hwb(222 13% 83%);
+
+}
+
+.task-title {
+    color: darkcyan;
+}
+
+.task-description {
+color: darkcyan;
+}
+
+.delete-btn {
+    justify-content: end;
+    margin-bottom: 10px;
+
+}

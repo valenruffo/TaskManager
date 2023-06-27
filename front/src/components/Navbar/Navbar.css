@@ -1,0 +1,25 @@
+
+.links-container {
+    display: flex;
+    justify-content: center;
+    font-family: 'Kanit', sans-serif;
+    margin: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: darkcyan;
+    font-size: 30px;
+    margin: 0 10px;  
+    border: 3px solid darkcyan;
+    border-radius: 20px;
+    padding: 5px;  
+    
+
+}
+
+a:hover {
+    transition: 0.5s;
+    background-color: darkcyan;
+    color: #282c34;
+}

@@ -1,0 +1,24 @@
+button { 
+    background-color: transparent;
+    color: darkcyan;
+    border: 1px solid darkcyan;
+    cursor: pointer;
+    font-size: 1rem;
+
+}
+
+button:hover{
+    transition: 0.5s;
+    background-color: darkcyan;
+    color: #282c34;
+    transition: 0.5s;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    margin: 40px 0px;
+
+    
+}
