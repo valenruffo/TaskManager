@@ -1,78 +1,76 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createTasks, getTasks } from "../../Redux/Actions";
 import "./CreateTask.css";
+import { v4 as uuid } from "uuid";
+import { useNavigate } from "react-router-dom";
+import { useCreateTaskMutation } from "../../ReduxToolkit/taskSlice";
 
 const CreateTask = () => {
-  const [input, setInput] = useState({
+  const [createTask] = useCreateTaskMutation();
+  const navigate = useNavigate();
+  const [task, setTask] = useState({
     title: "",
     description: "",
   });
 
-  const [errors, setErrors] = useState({
-    title: "El titulo es requerido",
-  });
+  const { title, description } = task;
 
-  const dispatch = useDispatch()
+  const handleSubmit = (event) => {
+    event.preventDefault(); //-->para evitar que la pagina refresque
+    setTask({
+      title: "",
+      description: "",
+    });
+    navigate("/tasks");
+    createTask({
+      ...task,
+      id: uuid(),
+    });
+  };
 
-  const validate = (input, title) => {
-    if (title === 'title') {
-      // title validation
-      if (input.title !== '') setErrors({ ...errors, title: '' })
-      else setErrors({ ...errors, title: 'El titulo es requerido' })
-
-  }
-}
-
-const { title, description } = input;
-
-const handleSubmit = (event) => {
-  event.preventDefault()
-  dispatch(createTasks(input))
-  dispatch(getTasks())
-  setInput({
-    title: "",
-    description: "",
-  })
-}
-
-  // para captar lo que se ingresa en el input
-  const handleChange = (event) => {
-    setInput({
-      ...input,
-      [event.target.name]: event.target.value
-    })
-
-    validate(
-      {
-        ...input,
-        [event.target.name]: event.target.value
-      },
-      event.target.name
-    )
-  }
-
-  
+  // para captar lo que se ingresa en el input/textarea
+  const handleChange = (e) => {
+    setTask({
+      ...task,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <div>
-      <form className='form1' onSubmit={handleSubmit}>
+      <form className="form1" onSubmit={handleSubmit}>
         <div>
-          <label htmlFor=''><span>Title:</span></label>
-          <input placeholder="Put your title here..." name='title' value={title} type='text' onChange={handleChange} />
+          <label htmlFor="">
+            <span>Title:</span>
+          </label>
+          <input
+            placeholder="Put your title here..."
+            name="title"
+            value={title}
+            type="text"
+            onChange={handleChange}
+          />
         </div>
         <br />
         <div>
-          <label htmlFor=''> <span>Description:</span></label>
-          <textarea placeholder="Put your description here..."name='description' value={description} type='text' onChange={handleChange} />
+          <label htmlFor="">
+            {" "}
+            <span>Description:</span>
+          </label>
+          <textarea
+            placeholder="Put your description here..."
+            name="description"
+            value={description}
+            type="text"
+            onChange={handleChange}
+          />
         </div>
         <br />
-        
-        <input className='submit'  type='submit' name='submit' />
+
+        <input className="submit" type="submit" name="submit" />
       </form>
     </div>
-  )
- 
+  );
 };
 
 export default CreateTask;

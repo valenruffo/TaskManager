@@ -7,7 +7,7 @@ const Navbar = () => {
     <div className="nav-container">
       <div className="links-container">
         <Link to={"/tasks"}>Tasks</Link>
-        <Link to={"/create"}>NewTask</Link>
+        <Link to={"/create"}>➕</Link>
       </div>
     </div>
   );

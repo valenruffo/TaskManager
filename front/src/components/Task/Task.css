@@ -4,7 +4,7 @@
     align-items: center;
     flex-direction: column;
     border-radius: 7px;
-    margin: 10px 20rem;
+    margin: 10px 35rem;
     background-color: hwb(222 13% 83%);
 
 }
@@ -20,5 +20,6 @@ color: darkcyan;
 .delete-btn {
     justify-content: end;
     margin-bottom: 10px;
-
+    border-radius: 7px;
+    
 }

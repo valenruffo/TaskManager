@@ -1,13 +1,7 @@
 import React from "react";
 import "./Task.css";
 
-
-
-
-const Task = ({ id, title, description, onDelete }) => {
-  const handleDelete = () => {
-    onDelete(id);
-  };
+const Task = ({ id, title, description }) => {
 
   return (
     <div className="task-container" key={id}>
@@ -17,9 +11,7 @@ const Task = ({ id, title, description, onDelete }) => {
       <div className="task-description">
         <h4>{description}</h4>
       </div>
-      <button onClick={handleDelete} className="delete-btn">
-        delete
-      </button>
+      
     </div>
   );
 };
