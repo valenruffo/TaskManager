@@ -1,26 +1,50 @@
-
-.links-container {
-    display: flex;
-    justify-content: center;
-    font-family: 'Kanit', sans-serif;
-    margin: 40px;
+.nav-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
 
+.profile-container {
+  display: flex;
+  
+}
+
+.links-container {
+  display: flex;
+  font-family: "Kanit", sans-serif;
+  align-items: center;
+  margin: 40px;
+}
 
 a {
-    text-decoration: none;
-    color: darkcyan;
-    font-size: 30px;
-    margin: 0 10px;  
-    border: 3px solid darkcyan;
-    border-radius: 20px;
-    padding: 5px;  
-    
-
+  text-decoration: none;
+  color: darkcyan;
+  font-size: 30px;
+  margin: 0 10px;
+  border: 3px solid darkcyan;
+  border-radius: 20px;
+  padding: 5px;
 }
 
 a:hover {
-    transition: 0.5s;
-    background-color: darkcyan;
-    color: #282c34;
+  transition: 0.5s;
+  background-color: darkcyan;
+  color: #282c34;
+}
+
+.login-button {
+  font-size: 20px;
+  font-family: "Kanit", sans-serif;
+  border: 3px solid darkcyan;
+  border-radius: 20px;
+}
+
+.login-container {
+  display: flex;
+}
+
+.login-button:hover {
+  background-color: darkcyan;
+  transition: 0.5s;
+  color: #282c34;
 }

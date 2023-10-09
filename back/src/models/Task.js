@@ -1,11 +1,11 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  sequelize.define(
+  const Task = sequelize.define(
     "Task",
     {
       id: {
-        type: DataTypes.UUID, 
+        type: DataTypes.UUID,
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
       },
@@ -20,7 +20,9 @@ module.exports = (sequelize) => {
     },
     {
       timestamps: false,
-      freezeTableName: true
+      freezeTableName: true,
     }
   );
-}
+
+  return Task;
+};

@@ -1,25 +1,67 @@
 .task-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 7px;
-    margin: 10px ;
-    background-color: hwb(222 13% 83%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 0.7rem;
+  margin: 1rem 3rem;
+  background-color: hwb(222 13% 83%);
+}
 
+.task-container:hover .delete-btn {
+  display: block;
+}
+
+.task-container:hover .task-description {
+  height: auto;
 }
 
 .task-title {
-    color: darkcyan;
+  color: darkcyan;
 }
 
 .task-description {
-color: darkcyan;
+  color: darkcyan;
+  overflow: hidden;
+  height: 5rem; /* Ajusta esto a la altura que desees */
+  width: calc(
+    100% - 4rem
+  ); /* Asegura que el ancho no exceda el del contenedor, teniendo en cuenta el relleno */
+  word-wrap: break-word; /* Permite que las palabras largas se rompan y pasen a la siguiente línea */
+  padding-left: 2rem; /* Añade relleno a la izquierda */
+  padding-right: 2rem;
 }
 
 .delete-btn {
-    justify-content: end;
-    margin-bottom: 10px;
-    border-radius: 7px;
-    
+  display: none;
+  margin-bottom: 1rem;
+  border-radius: 0.2rem;
+  padding: 0.5rem;
+  border: 0.3rem solid darkcyan;
+  font-weight: bold;
+  border: 2px solid darkcyan;
+}
+
+
+@media (max-width: 600px) {
+  .task-container {
+    margin: 5px 10px;
+    padding: 10px;
+  }
+}
+
+/* Estilos para pantallas de tablet (ancho de 600px a 900px) */
+@media (min-width: 600px) and (max-width: 900px) {
+  .task-container {
+    margin: 10px 15px;
+    padding: 20px;
+  }
+}
+
+/* Estilos para pantallas de PC (ancho mayor a 900px) */
+@media (min-width: 900px) {
+  .task-container {
+    margin: 20px 25px;
+    padding: 30px;
+  }
 }

@@ -1,7 +1,8 @@
-// handlers/tasksHandlers.js
+const { sequelize, Task, User } = require("../db");
+
 const {
   createTaskDb,
-  getAllTasks,
+  getAllTasksDb,
   deleteTaskDb,
 } = require("../controllers/TaskController");
 
@@ -11,10 +12,10 @@ async function getTasksHandler(req, res) {
   const { title } = req.query;
   try {
     if (title) {
-      const response = await getAllTasks(title);
+      const response = await getAllTasksDb(title);
       return res.status(200).json(response);
     }
-    const response = await getAllTasks();
+    const response = await getAllTasksDb();
     res.status(200).json(response);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -27,7 +28,7 @@ async function createTaskHandler(req, res) {
   const { title, description } = req.body;
   try {
     const response = await createTaskDb(title, description);
-    res.status(200).json(response);
+    res.status(201).json(response);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -35,8 +36,8 @@ async function createTaskHandler(req, res) {
 
 // Función para eliminar una tarea existente
 async function deleteTaskHandler(req, res) {
-  // Implementa la lógica para eliminar una tarea
-  const { id } = req.params
+  // Implementa la lógica para eliminar una tarea existente
+  const { id } = req.params;
   try {
     await deleteTaskDb(id);
     res.status(200).send("Task deleted successfully");

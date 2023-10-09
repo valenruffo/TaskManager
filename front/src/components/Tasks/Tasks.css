@@ -1,6 +1,16 @@
 .loading {
-    font-size: 50px;
+    font-size: 5rem;
     color: darkcyan;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.error-loading {
+    color: rgba(255, 0, 0, 0.644);
+    font-size: 1.2rem;
     font-weight: bold;
     display: flex;
     justify-content: center;

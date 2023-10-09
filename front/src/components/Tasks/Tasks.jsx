@@ -4,12 +4,12 @@ import Task from "../Task/Task";
 import { useGetTasksQuery } from "../../ReduxToolkit/taskSlice";
 
 const Tasks = () => {
-  const { data: tasks, isError, isLoading, error } = useGetTasksQuery();
+  const { data: tasks, isError, isLoading} = useGetTasksQuery();
 
   if (isLoading) {
     return <div className="loading">Loading...</div>;
   } else if (isError) {
-    return <div>Error: {error.message}</div>;
+    return <div className="error-loading">error database</div>;
   }
 
   return (

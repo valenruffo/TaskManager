@@ -13,9 +13,7 @@ TaskModel(sequelize);
 
 const { Task } = sequelize.models;
 
-
-
 module.exports = {
   ...sequelize.models,
-  sequelize
-}
+  sequelize,
+};
