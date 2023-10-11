@@ -9,7 +9,7 @@
 }
 
 .task-container:hover .delete-btn {
-  display: block;
+  display: flex;
 }
 
 .task-container:hover .task-description {
@@ -34,9 +34,10 @@
 
 .delete-btn {
   display: none;
-  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  margin-top: 2rem;
   border-radius: 0.2rem;
-  padding: 0.5rem;
+  padding: 0.25rem;
   border: 0.3rem solid darkcyan;
   font-weight: bold;
   border: 2px solid darkcyan;
