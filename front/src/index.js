@@ -3,16 +3,18 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ApiProvider } from "@reduxjs/toolkit/query/react";
-import { taskSlice } from "./ReduxToolkit/taskSlice";
+import { Provider } from "react-redux";
+import { store } from "./ReduxToolkit/store";
+//import { ApiProvider } from "@reduxjs/toolkit/query/react";
+//import { taskSlice } from "./ReduxToolkit/taskSlice";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <ApiProvider api={taskSlice}>
+    <Provider store={store}>
       <App />
-    </ApiProvider>
+    </Provider>
   </React.StrictMode>
 );
 
