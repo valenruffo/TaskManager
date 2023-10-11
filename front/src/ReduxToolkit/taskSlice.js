@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const taskSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://taskmanager-ai3g3jq91-valenruffo.vercel.app",
+    baseUrl: "https://taskmanager-valenruffo.vercel.app",
   }),
   endpoints: (builder) => ({
     getTasks: builder.query({
