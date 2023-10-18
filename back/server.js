@@ -1,5 +1,5 @@
 const server = require("./src/app");
-const PORT = 3003;
+const PORT = 80;
 const { sequelize } = require("./src/db");
 
 server.listen(PORT, () => {

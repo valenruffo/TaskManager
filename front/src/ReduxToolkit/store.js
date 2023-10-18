@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/query";
+import { setupListeners } from "@reduxjs/toolkit/query/react";
 import { taskSlice } from "./taskSlice";
 
 export const store = configureStore({
