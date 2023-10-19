@@ -3,16 +3,16 @@ import "./CreateTask.css";
 import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
 import { useCreateTaskMutation } from "../../ReduxToolkit/taskSlice";
+import ArrowDropDownOutlined from '@mui/icons-material/ArrowDropDownOutlined';
 
 const CreateTask = () => {
   const [createTask] = useCreateTaskMutation();
   const navigate = useNavigate();
   const [task, setTask] = useState({
     title: "",
-    description: "",
   });
 
-  const { title, description } = task;
+  const { title } = task;
 
   const handleSubmit = (event) => {
     event.preventDefault(); //-->para evitar que la pagina refresque
@@ -40,33 +40,18 @@ const CreateTask = () => {
       <form className="form1" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="">
-            <span>Title:</span>
+            <span>New Task:</span>
           </label>
           <input
-            placeholder="Put your title here..."
+            placeholder="Put your task here..."
             name="title"
             value={title}
             type="text"
             onChange={handleChange}
           />
         </div>
-        <br />
-        <div>
-          <label htmlFor="">
-            {" "}
-            <span>Description:</span>
-          </label>
-          <textarea
-            placeholder="Put your description here..."
-            name="description"
-            value={description}
-            type="text"
-            onChange={handleChange}
-          />
-        </div>
-        <br />
-
-        <input className="submit" type="submit" name="submit" />
+        <button className="submit" type="submit" name="submit"><ArrowDropDownOutlined/></button>
+       
       </form>
     </div>
   );

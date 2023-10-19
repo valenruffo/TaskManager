@@ -20,7 +20,6 @@ const Tasks = () => {
             id={task.id}
             key={task.id}
             title={task.title}
-            description={task.description}
           />
         </div>
       ))}
