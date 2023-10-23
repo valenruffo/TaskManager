@@ -12,16 +12,49 @@
 
 .modal-content {
   font-size: 8px;
-  text-align: left
-  ;
+  text-align: left;
   box-shadow: 0 0 10rem rgba(0, 0, 0, 1);
   background-color: hwb(222 13% 83%);
   color: darkcyan;
   border-radius: 0.5rem;
-  padding: 1rem 1rem 5rem 1rem;
+  padding: 1rem 1rem 3rem 1.5rem;
   width: 30%;
   max-width: 80%; /* Ajusta esto a 'auto' para permitir que el modal se expanda verticalmente */
   word-wrap: break-word;
+}
+.button-container-modal {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  margin-top: 5rem;
+}
+
+.delete-btn-modal {
+  all: unset;
+  background-color: hwb(222 13% 83%);
+  font-size: 1rem;
+}
+
+.delete-btn-modal:hover {
+  transition: 0.5s;
+  cursor: pointer;
+  .delete-icon {
+    color: rgba(245, 245, 245, 0.541);
+  }
+}
+
+.pin-btn-modal{
+  all: unset;
+  background-color: hwb(222 13% 83%);
+  font-size: 1rem;
+}
+
+.pin-btn-modal:hover {
+  transition: 0.5s;
+  cursor: pointer;
+  .pin-icon {
+    color: rgba(245, 245, 245, 0.541);
+  }
 }
 
 .task-container {
@@ -31,6 +64,10 @@
   border-radius: 0.7rem;
   background-color: hwb(222 13% 83%);
   padding-left: 1rem;
+}
+
+.task-container:hover {
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
 }
 
 .task-description {
@@ -47,6 +84,7 @@
   border-radius: 0 0.7rem 0.7rem 0;
   padding: 2.44rem 1rem 2.44rem 1rem;
   border: 2px solid darkcyan;
+  align-self: normal;
 }
 
 .delete-btn:hover {
@@ -63,10 +101,12 @@
   color: darkcyan;
 }
 
-
 @media (max-width: 600px) {
   .task-container {
     margin: 1rem 3rem;
+  }
+  .delete-btn {
+    padding: 2.44rem 0.5rem 2.44rem 0.5rem;
   }
 }
 

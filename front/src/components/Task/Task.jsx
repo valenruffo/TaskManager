@@ -3,18 +3,19 @@ import "./Task.css";
 import { useDeleteTaskMutation } from "../../ReduxToolkit/taskSlice";
 import Icon from "@mui/material/Icon";
 import DeleteIconOutlineOutlined from "@mui/icons-material/DeleteOutlineOutlined";
+import PushPinIcon from "@mui/icons-material/PushPin";
+import PushPinOutlinedIcon from "@mui/icons-material/PushPinOutlined";
+import ReactMarkdown from "react-markdown";
 
-const Task = ({ id, title }) => {
-  // Elimina 'description' de las props
+const Task = ({ id, title, isPinned, onPin }) => {
   const [deleteTask] = useDeleteTaskMutation();
-  const [isModalOpen, setIsModalOpen] = useState(false); // Agrega un estado para controlar si el modal está abierto
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div
-      className="task-container"
-      onClick={() => setIsModalOpen(true)} // Abre el modal al hacer clic en la descripción
-    >
-      <h4 className="task-description">{title}</h4>
+    <div className={`task-container ${isPinned ? "pinned" : ""}`}>
+      <h4 className="task-description" onClick={() => setIsModalOpen(true)}>
+        <ReactMarkdown>{title}</ReactMarkdown>
+      </h4>
 
       <button className="delete-btn" onClick={() => deleteTask(id)}>
         <Icon>
@@ -22,16 +23,31 @@ const Task = ({ id, title }) => {
         </Icon>
       </button>
 
-      {isModalOpen && ( // Muestra el modal si isModalOpen es verdadero
-        <div
-          className="modal-background"
-          onClick={() => setIsModalOpen(false)} // Cierra el modal al hacer clic en el fondo
-        >
-          <div
-            className="modal-content"
-             // Evita que los clics en el contenido cierren el modal
-          >
-            <h1>{title}</h1> {/* Muestra solo el título de la tarea */}
+      {isModalOpen && (
+        <div className="modal-background" onClick={() => setIsModalOpen(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <h1>
+              <ReactMarkdown>{title}</ReactMarkdown>
+            </h1>
+            <div className="button-container-modal">
+              <button
+                className="delete-btn-modal"
+                onClick={() => deleteTask(id)}
+              >
+                <Icon>
+                  <DeleteIconOutlineOutlined className="delete-icon" />
+                </Icon>
+              </button>
+              <button className="pin-btn-modal" onClick={() => onPin(id)}>
+                <Icon>
+                  {isPinned ? (
+                    <PushPinIcon className="pin-icon" />
+                  ) : (
+                    <PushPinOutlinedIcon className="pin-icon" />
+                  )}
+                </Icon>
+              </button>
+            </div>
           </div>
         </div>
       )}

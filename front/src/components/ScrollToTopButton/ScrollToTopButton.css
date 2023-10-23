@@ -1,0 +1,23 @@
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: hwb(222 13% 83%);
+  border: 1px solid darkcyan;
+}
+
+.arrow-color {
+  display: flex;
+  padding-left: 1.5px;
+}
+
+.scroll-to-top:hover {
+  transition: 0.5s;
+  background-color: darkcyan;
+  color: hwb(222 13% 83%);
+  .arrow-color {
+    color: hwb(222 13% 83%);
+  }
+}

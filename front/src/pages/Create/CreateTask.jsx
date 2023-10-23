@@ -3,7 +3,8 @@ import "./CreateTask.css";
 import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
 import { useCreateTaskMutation } from "../../ReduxToolkit/taskSlice";
-import ArrowDropDownOutlined from '@mui/icons-material/ArrowDropDownOutlined';
+import ArrowDropDownOutlined from "@mui/icons-material/ArrowDropDownOutlined";
+import TextareaAutosize from "react-textarea-autosize";
 
 const CreateTask = () => {
   const [createTask] = useCreateTaskMutation();
@@ -16,6 +17,10 @@ const CreateTask = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault(); //-->para evitar que la pagina refresque
+    if (title.trim() === "") {
+      // Si el título está vacío, no hagas nada y retorna
+      return;
+    }
     setTask({
       title: "",
       description: "",
@@ -26,7 +31,6 @@ const CreateTask = () => {
       id: uuid(),
     });
   };
-
   // para captar lo que se ingresa en el input/textarea
   const handleChange = (e) => {
     setTask({
@@ -42,16 +46,17 @@ const CreateTask = () => {
           <label htmlFor="">
             <span>New Task:</span>
           </label>
-          <input
+          <TextareaAutosize
+            className="task-input"
             placeholder="Put your task here..."
             name="title"
             value={title}
-            type="text"
             onChange={handleChange}
           />
         </div>
-        <button className="submit" type="submit" name="submit"><ArrowDropDownOutlined/></button>
-       
+        <button className="submit" type="submit" name="submit">
+          <ArrowDropDownOutlined />
+        </button>
       </form>
     </div>
   );

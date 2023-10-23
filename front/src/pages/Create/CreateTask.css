@@ -12,6 +12,7 @@
   flex-direction: column;
   margin: 3rem 0rem;
 }
+
 span {
   color: #83817f;
   font-size: 20px;
@@ -21,22 +22,28 @@ span {
   color: darkcyan;
 }
 
-input {
-  font-size: 0.9rem;
-  background-color: hwb(222 13% 83%);
+.task-input {
+  all: unset;
   appearance: none;
-  border: none;
+  font-family: "Kanit", sans-serif;
+  font-size: 0.9rem;
+  color: #f5f5f5d7;
+  background-color: hwb(222 13% 83%);
+  text-align: left;
   padding: 0.7rem 0.7rem 0.7rem 0.7rem;
   width: 25rem;
-  color: #f5f5f5d7;
-  font-family: "Kanit", sans-serif;
+  white-space: pre-wrap; /* Ajusta el texto al siguiente renglón */
+  word-wrap: break-word; /* Ajusta las palabras largas al siguiente renglón */
+  overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
+  border: none;
+
 }
 
-input:focus {
+.task-input:focus {
   outline: none;
 }
 
-input::placeholder {
+.task-input::placeholder {
   font-size: 0.9rem;
 }
 
@@ -50,11 +57,9 @@ label {
   justify-content: center;
   color: darkcyan;
   background-color: hwb(222 13% 83%);
-  font-size: 1rem;
-  border-radius: 0rem 0 0.7rem 0.7rem ;
-  padding:  0.5rem 0.46rem 0.5rem 0.46rem;
+  border-radius: 0rem 0 0.7rem 0.7rem;
+  padding: 0 1rem;
   border: 2px solid darkcyan;
- 
 }
 
 .submit:hover {
@@ -64,23 +69,23 @@ label {
   cursor: pointer;
 }
 
-
+/* Estilos para pantallas moviles */
 @media (max-width: 600px) {
-  .task-container {
-    margin: 1rem 3rem;
+  input {
+    width: 15rem;
   }
 }
 
 /* Estilos para pantallas de tablet (ancho de 600px a 900px) */
 @media (min-width: 600px) and (max-width: 900px) {
-  .task-container {
-    margin: 1rem 5rem;
+  input {
+    width: 25rem;
   }
 }
 
 /* Estilos para pantallas de PC (ancho mayor a 900px) */
 @media (min-width: 900px) {
-  .task-container {
-    margin: 1rem 10rem;
+  input {
+    width: 25rem;
   }
 }
