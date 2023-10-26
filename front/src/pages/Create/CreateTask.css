@@ -71,21 +71,21 @@ label {
 
 /* Estilos para pantallas moviles */
 @media (max-width: 600px) {
-  input {
+  .task-input {
     width: 15rem;
   }
 }
 
 /* Estilos para pantallas de tablet (ancho de 600px a 900px) */
 @media (min-width: 600px) and (max-width: 900px) {
-  input {
+  .task-input {
     width: 25rem;
   }
 }
 
 /* Estilos para pantallas de PC (ancho mayor a 900px) */
 @media (min-width: 900px) {
-  input {
+  .task-input {
     width: 25rem;
   }
 }

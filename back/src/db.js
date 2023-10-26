@@ -2,6 +2,7 @@ const { Sequelize } = require("sequelize");
 require("dotenv").config();
 
 const TaskModel = require("./models/Task");
+const UserModel = require("./models/User"); // Importa el modelo User
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_DIALECT, DB_NAME } = process.env;
 
@@ -10,8 +11,7 @@ const sequelize = new Sequelize(
 );
 
 TaskModel(sequelize);
-
-const { Task } = sequelize.models;
+UserModel(sequelize); 
 
 module.exports = {
   ...sequelize.models,

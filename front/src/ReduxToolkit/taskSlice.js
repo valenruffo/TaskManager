@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const taskSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:80", 
+    baseUrl: process.env.REACT_APP_API_URL, 
   }),
   endpoints: (builder) => ({
     getTasks: builder.query({

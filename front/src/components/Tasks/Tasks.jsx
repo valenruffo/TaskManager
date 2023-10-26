@@ -5,6 +5,7 @@ import { useGetTasksQuery } from "../../ReduxToolkit/taskSlice";
 
 const Tasks = () => {
   const { data: tasks, isError, isLoading } = useGetTasksQuery();
+
   const [pinnedTasks, setPinnedTasks] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
 

@@ -21,3 +21,13 @@
     color: hwb(222 13% 83%);
   }
 }
+
+@media (max-width: 600px) {
+  .scroll-to-top {
+    right: 0.3rem;
+    padding: 1px;
+    border-radius: 50%;
+    background-color: hwb(222 13% 83%);
+   
+  }
+}
