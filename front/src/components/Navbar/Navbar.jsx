@@ -1,6 +1,6 @@
 import React from "react";
 import "./Navbar.css";
-import CreateTask from "../../pages/Create/CreateTask";
+import CreateTask from "../Create/CreateTask";
 
 const Navbar = () => {
   return (
