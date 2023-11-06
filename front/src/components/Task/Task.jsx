@@ -7,7 +7,7 @@ import PushPinIcon from "@mui/icons-material/PushPin";
 import PushPinOutlinedIcon from "@mui/icons-material/PushPinOutlined";
 import ReactMarkdown from "react-markdown";
 
-const Task = ({ id, title, isPinned, onPin }) => {
+const Task = ({ id, title, isPinned, onPin, onDelete }) => {
   const [deleteTask] = useDeleteTaskMutation();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -17,7 +17,13 @@ const Task = ({ id, title, isPinned, onPin }) => {
         <ReactMarkdown>{title}</ReactMarkdown>
       </h4>
 
-      <button className="delete-btn" onClick={() => deleteTask(id)}>
+      <button
+        className="delete-btn"
+        onClick={() => {
+          deleteTask(id);
+          onDelete(id);
+        }}
+      >
         <Icon>
           <DeleteIconOutlineOutlined className="delete-icon" />
         </Icon>
@@ -32,7 +38,10 @@ const Task = ({ id, title, isPinned, onPin }) => {
             <div className="button-container-modal">
               <button
                 className="delete-btn-modal"
-                onClick={() => deleteTask(id)}
+                onClick={() => {
+                  deleteTask(id);
+                  onDelete(id);
+                }}
               >
                 <Icon>
                   <DeleteIconOutlineOutlined className="delete-icon" />

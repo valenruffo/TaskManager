@@ -3,13 +3,14 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const taskSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_API_URL, 
+    baseUrl: process.env.REACT_APP_API_URL,
   }),
   endpoints: (builder) => ({
     getTasks: builder.query({
       query: () => "/tasks",
       providesTags: ["Tasks"],
-      transformResponse: (response) => response.sort((a, b) => a.id - b.id),
+      transformResponse: (response) =>
+        response.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)),
     }),
     createTask: builder.mutation({
       query: (newTask) => ({

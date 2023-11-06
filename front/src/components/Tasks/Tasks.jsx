@@ -33,6 +33,11 @@ const Tasks = () => {
     return <div className="error-loading">error database</div>;
   }
 
+  const handleDelete = (id) => {
+    // Actualiza el estado de pinnedTasks para eliminar la tarea
+    setPinnedTasks(pinnedTasks.filter((task) => task.id !== id));
+  };
+
   return (
     <div className="tasks-container">
       {errorMessage && <div className="error-message">{errorMessage}</div>}
@@ -43,6 +48,7 @@ const Tasks = () => {
           title={task.title}
           isPinned
           onPin={handlePin}
+          onDelete={handleDelete}
         />
       ))}
       {tasks
@@ -53,6 +59,7 @@ const Tasks = () => {
             key={task.id}
             title={task.title}
             onPin={handlePin}
+            onDelete={handleDelete}
           />
         ))}
     </div>
